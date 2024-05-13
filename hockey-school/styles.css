@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: black;
+    overflow: hidden;
+}
+
+#paddle1, #paddle2 {
+    position: absolute;
+    width: 20px;
+    height: 80px;
+    background: white;
+}
+
+#paddle1 {
+    left: 50px;
+}
+
+#paddle2 {
+    right: 50px;
+}
+
+#puck {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+}
