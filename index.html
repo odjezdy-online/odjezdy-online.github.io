@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odjezdy.online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        .loading-screen .animate {
+            width: 80%;
+            height: 20px;
+        }
+        .nav-button {
+            background-color: #1d4ed8;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="loading-screen">
+        <div role="progressbar" class="animate">
+            <div style="width: 0%"></div>
+        </div>
+    </div>
+    <div class="container mx-auto p-4">
+        <header class="text-center my-8">
+            <h1 class="text-4xl font-bold">Odjezdy.online</h1>
+        </header>
+        <nav class="flex justify-center space-x-4 mb-8">
+            <button onclick="location.href='https://github.com/odjezdy-online'" class="nav-button">Github</button>
+            <button onclick="location.href='/psychic-waffle'" class="nav-button">DÚK Stop sign texture</button>
+            <button onclick="location.href='/cuddly-octo-pancake'" class="nav-button">Stuff for main web</button>
+            <button onclick="location.href='https://go.odjezdy.online/s66'" class="nav-button">Links - Affiliate</button>
+        </nav>
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Ad Section</h2>
+            <div class="bg-white p-4 rounded shadow">
+                <!--Kolotibablo banner begins-->
+                <a href="http://getcaptchajob.com/lb4qqdorpr" target="_blank">
+                    <img src="https://files.anti-captcha.com/bd/37d/ef3/8c8fe5ec.png" alt="Work online and earn real money">
+                </a>
+                <!--Kolotibablo banner ends-->
+            </div>
+        </section>
+        <div class="text-center">
+            <button onclick="location.href='#fake-money'" class="nav-button">Free Money</button>
+        </div>
+    </div>
+
+    <div class="window active is-bright" id="fake-money" role="dialog" aria-labelledby="dialog-title">
+        <div class="title-bar">
+            <div class="title-bar-text" id="dialog-title">Problem Diagnostics</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="history.back()"></button>
+            </div>
+        </div>
+        <div class="window-body has-space">
+            <h2 class="instruction instruction-primary">Identifying your problem...</h2>
+            <div role="progressbar" class="marquee"></div>
+        </div>
+        <footer style="text-align: right">
+            <button onclick="history.back()">Cancel</button>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const progressBar = document.querySelector('.loading-screen .animate div');
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    document.querySelector('.loading-screen').style.display = 'none';
+                } else {
+                    width++;
+                    progressBar.style.width = width + '%';
+                }
+            }, 50);
+        });
+    </script>
+</body>
+</html>
