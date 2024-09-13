@@ -1,0 +1,79 @@
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js"></script>
+</head>
+<body class="bg-gray-200 h-screen">
+  <div id="app" class="flex flex-col h-full">
+    <div class="w-full bg-blue-600 p-2 flex items-center justify-between">
+      <div class="w-1/4 bg-white h-8 flex items-center justify-center text-black font-bold">
+        {{ currentTime }}
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-yellow-400 font-bold">GPRS</span>
+        <span class="text-white">Wifi</span>
+        <div class="w-6 h-6 bg-gray-300"></div>
+        <div class="w-6 h-6 bg-green-500"></div>
+      </div>
+    </div>
+    <div class="flex-grow flex flex-col items-center justify-center">
+      <div class="bg-blue-300 p-4 border-2 border-gray-400 shadow-lg w-full max-w-md">
+        <div class="bg-blue-400 text-center py-2 mb-4">
+          <span class="text-black font-bold text-lg">ZADEJTE LINKU A SPOJ</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+          <div class="flex items-center">
+            <span class="text-black font-bold mr-2">Linka:</span>
+            <input v-model="linka" type="text" class="border-2 border-gray-400 p-1 w-40">
+          </div>
+          <div class="flex items-center">
+            <span class="text-black font-bold mr-2">Spoj:</span>
+            <input v-model="spoj" type="text" class="border-2 border-gray-400 p-1 w-40">
+          </div>
+        </div>
+      </div>
+      <div class="flex space-x-2 mt-4">
+        <button @click="checkAndRedirect" class="bg-gray-300 p-2 w-20">Odch.</button>
+        <button @click="checkAndRedirect" class="bg-gray-300 p-2 w-20">List</button>
+        <div @click="checkAndRedirect" class="bg-gray-300 p-2 w-20"></div>
+        <div @click="checkAndRedirect" class="bg-gray-300 p-2 w-20"></div>
+        <div @click="checkAndRedirect" class="bg-gray-300 p-2 w-20"></div>
+        <div @click="checkAndRedirect" class="bg-gray-300 p-2 w-20"></div>
+        <div @click="checkAndRedirect" class="bg-gray-300 p-2 w-20"></div>
+        <div @click="checkAndRedirect" class="bg-gray-300 p-2 w-20"></div>
+        <div @click="checkAndRedirect" class="bg-gray-300 p-2 w-20"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const { createApp, ref } = Vue;
+    createApp({
+      setup() {
+        const currentTime = ref(new Date().toLocaleString());
+        const linka = ref('');
+        const spoj = ref('');
+
+        setInterval(() => {
+          currentTime.value = new Date().toLocaleString();
+        }, 1000);
+
+        const validLinka = ['501400', '501410', '501251', '501451'];
+        const validSpoj = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+        const checkAndRedirect = () => {
+          if (validLinka.includes(linka.value) && validSpoj.includes(spoj.value)) {
+            window.location.href = 'https://herohero.co/p3ta';
+          }
+        };
+
+        return {
+          currentTime,
+          linka,
+          spoj,
+          checkAndRedirect
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
