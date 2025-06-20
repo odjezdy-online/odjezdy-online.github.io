@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MD Cast Approved™</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; color: #222; margin:0; padding:0 }
+    header { background:#282c34; color:#fff; padding:1rem 2rem; display:flex; justify-content:space-between }
+    nav button { background:transparent; border:none; color:#fff; padding:.5rem 1rem; cursor:pointer; border-bottom:2px solid transparent }
+    nav button.active, nav button:hover { border-color:#61dafb }
+    main { max-width:900px; margin:2rem auto; padding:0 1rem }
+    .card { background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); margin-bottom:1.5rem; padding:1.5rem }
+    .card h2 { margin-top:0 }
+    .card img { max-width:100%; border-radius:6px; margin-top:1rem }
+    footer { text-align:center; padding:1rem; color:#666; border-top:1px solid #ddd; margin-top:3rem }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MD Cast Approved™</h1>
+    <nav>
+      <button id="btn-tourism" class="active">Turistika</button>
+      <button id="btn-chaos">Projekty & chaos</button>
+    </nav>
+  </header>
+  <main id="content"><p>Načítám data…</p></main>
+  <footer><p>© 2025 MD Cast Approved™ | Tato stránka není officiální stránkou Glitch Productions, či Murder Drones. Je to fanouškovská práce.</p></footer>
+  <script>
+    const content = document.getElementById("content");
+    const btnTourism = document.getElementById("btn-tourism");
+    const btnChaos = document.getElementById("btn-chaos");
+    let data = [], currentType = "tourism";
+
+    async function loadData() {
+      content.innerHTML = "<p>Načítám data…</p>";
+      try {
+        const res = await fetch("https://raw.githubusercontent.com/odjezdy-online/odjezdy-online.github.io/refs/heads/main/md-stuff/places/cyn-approves.json");
+        if (!res.ok) throw new Error("Nelze načíst data");
+        data = await res.json();
+        render(currentType);
+      } catch {
+        content.innerHTML = "<p>Chyba při načítání dat.</p>";
+      }
+    }
+
+    function render(type) {
+      currentType = type;
+      content.innerHTML = "";
+      const filtered = data.filter(item => item.type === type);
+      if (!filtered.length) { content.innerHTML = "<p>Žádné záznamy.</p>"; return; }
+      filtered.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <h2>${item.title}</h2>
+          <p><strong>Lokace:</strong> ${item.location || "Neznámá"}</p>
+          <p>${item.description}</p>
+          ${item.how_to_get_there ? `<p><strong>Dostupnost:</strong> ${item.how_to_get_there}</p>` : ""}
+          ${item.character_reactions ? `<h3>Jak by reagovaly postavy:</h3><ul>${Object.entries(item.character_reactions).map(([c,r])=>`<li><strong>${c}:</strong> ${r}</li>`).join("")}</ul>` : ""}
+          <p><em>Navrženo komunitou: ${item.approved_by || "anonym"}</em></p>
+          ${item.media ? `<img src="${item.media}" alt="${item.title}" />` : ""}
+        `;
+        content.appendChild(card);
+      });
+    }
+
+    btnTourism.onclick = () => { btnTourism.classList.add("active"); btnChaos.classList.remove("active"); render("tourism"); };
+    btnChaos.onclick = () => { btnChaos.classList.add("active"); btnTourism.classList.remove("active"); render("chaos"); };
+    loadData();
+  </script>
+</body>
+</html>
