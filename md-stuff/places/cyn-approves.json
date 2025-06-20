@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Zřícenina hradu Doubravská hora",
+    "type": "tourism",
+    "location": "Teplice, CZ",
+    "description": "Romantická zřícenina s rozhlednou – ideální pro ambientní procházku s nádechem historie.",
+    "how_to_get_there": "Pěšky z centra nebo turistickým vláčkem Humboldt. Výhled stojí za to.",
+    "character_reactions": {
+      "Uzi": "Fascinovala by ji potemnělá atmosféra a ticho ruin.",
+      "N": "Sebral by si materiál na dokumentaci místa a pravděpodobně by někde zakopl.",
+      "Cyn": "Pochválila by estetický rozklad, ale zároveň by ho považovala za slabý pokus o chaotický design.",
+      "Ch-last": "Pravděpodobně by řekla něco ve smyslu \"no, je to tu nudný, ale jako pěkný\""
+    },
+    "approved_by": "Ch-last (mxnticek)",
+    "media": "https://www.hrad-doubravka.cz/wp-content/uploads/2021/04/20210117_145359-scaled.jpg"
+  }
+]
