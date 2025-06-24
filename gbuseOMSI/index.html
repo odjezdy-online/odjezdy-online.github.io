@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="cs-CZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gBuse to OMSI Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style2.css">
+    <script defer src="content.js"></script>
+</head>
+<body>
+    <main class="converter">
+        <div id="panel-display">
+            <table id="panel-table">
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <section class="controls">
+            <div class="output-section">
+                <input type="text" id="vystupOMSI" aria-label="OMSI Výstup" class="output-field" placeholder="Zde se zobrazí kód pro OMSI. Pro vložení panelu nahrajte PNG soubor nebo použijte CTRL+V pro vložení screenshotu z gBuse (ALT+PRTSC).">
+                <div class="save-controls">
+                    <input type="text" id="fileName" placeholder="Název kódu" class="file-name-input">
+                    <button id="saveCode" class="control-button">Uložit kód</button>
+                </div>
+            </div>
+
+            <div class="modification-controls">
+                <button id="10dotek" class="control-button">Přidat 10 mrtvých dotů</button>
+                <button id="10ledek" class="control-button">Přidat 10 mrtvých LED</button>
+            </div>
+
+            <div class="saved-codes">
+                <h3>Uložené kódy</h3>
+                <div id="savedCodesList" class="codes-list">
+                    <!-- Saved codes will be listed here -->
+                </div>
+            </div>
+
+            <div class="input-section">
+                <h2>Panel Input</h2>
+                <p>Nahrajte PNG s požadovaným panelem</p>
+                <input id="input" type="file" accept="image/png" class="file-input">
+                
+                <div class="shortcuts-info">
+                    <p>Pro vložení panelu nahrajte PNG soubor nebo použijte CTRL+V pro vložení screenshotu z gBuse (ALT+PRTSC).</p>
+                    <p>Pokuď používáte ShareX, nepoužívejte CTRL + V pro vložení screenshotu z gBuse, ale používejte nahrávání. Na Windows je to v C:\Users\<username>\Documents\ShareX\Screenshots\GBuse0</p>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Hidden canvases for image processing -->
+        <canvas id="CTRLVGBUSE" width="634" height="481" hidden></canvas>
+        <canvas id="VSTUPCANVAS" hidden></canvas>
+        <canvas id="canvas" hidden></canvas>
+    </main>
+    <!-- Cookie Consent -->
+    <div id="cookieConsent" class="cookie-consent" hidden>
+            <div class="cookie-content">
+                <p>Tato stránka používá cookies pro ukládání vašich OMSI kódů po dobu 30 dnů. Používáním této stránky souhlasíte s použitím cookies.</p>
+                <div class="cookie-buttons">
+                    <button id="acceptCookies" class="control-button">Přijmout</button>
+                    <button id="declineCookies" class="control-button">Odmítnout</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Původní nástroj: <a href="https://adamzlipy.wz.cz/gBuseOMSI/" target="_blank">adamzlipy</a> | Upraveno: @mxnticek (s povolením autora)</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,375 @@
+/* Base Styles */
+:root {
+    --primary-color: #006699;
+    --secondary-color: #004466;
+    --text-color: #333;
+    --border-color: #ccc;
+    --background-color: #f5f5f5;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Layout */
+.converter {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Panel Display */
+#panel-display {
+    margin-bottom: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+#panel-table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+#panel-table td {
+    padding: 2px;
+    border: 1px solid var(--border-color);
+}
+
+#panel-table input[type="checkbox"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.vybrano {
+    background-color: var(--primary-color);
+}
+
+/* Controls Section */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.converter {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.output-section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.output-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.save-controls {
+    display: flex;
+    gap: 0;
+    margin-top: 10px;
+}
+
+.file-name-input {
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.save-controls .control-button {
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+}
+
+/* Remove all custom Panel Input styling */
+.input-section {
+    margin: 0;
+    padding: 0;
+}
+
+.file-input {
+    margin: 10px 0;
+}
+
+.shortcuts-info {
+    margin-top: 10px;
+}
+
+.shortcuts-info p {
+    margin: 5px 0;
+}
+
+.shortcuts-info p {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.shortcuts-info strong {
+    color: var(--primary-color);
+}
+
+/* Modification Controls */
+.controls {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.button-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.modification-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Container adjustments */
+#panel-display, .output-section, .modification-controls, .saved-codes, .input-section {
+    margin: 0;
+    padding: 0;
+}
+
+.tip {
+    margin-top: 10px;
+    padding: 5px;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.modification-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.control-button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.control-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Saved Codes List */
+.saved-codes {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.saved-codes h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* Saved Codes List */
+.input-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.input-section h2, h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.codes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.code-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+.code-item.current {
+    background: #e3f2fd;
+    border-color: var(--primary-color);
+}
+
+.code-status {
+    color: var(--primary-color);
+    font-style: italic;
+    margin-left: 8px;
+    font-size: 0.9em;
+}
+
+.code-item .code-name {
+    font-weight: bold;
+}
+
+.code-item .code-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.code-item button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.code-item .show-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.code-item .delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Save Controls */
+.save-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.file-name-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Cookie Consent */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cookie-content p {
+    margin: 0;
+    flex: 1;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.cookie-buttons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: filter 0.2s;
+}
+
+.cookie-buttons button:hover {
+    filter: brightness(110%);
+}
+
+#acceptCookies {
+    background-color: #28a745;
+    color: white;
+}
+
+#declineCookies {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Hidden Elements */
+[hidden] {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .converter {
+        padding: 10px;
+    }
+
+    .modification-controls {
+        flex-direction: column;
+    }
+
+    .control-button {
+        width: 100%;
+    }
+}
